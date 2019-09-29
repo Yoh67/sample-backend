@@ -4,7 +4,7 @@ const pgPromise = require('pg-promise'); //PostgreSQL interface for Node, Core l
 
 // Initialize pg-promsie with options..
 const initOptions = { 
-    promiseLib: promise 
+    promiseLib: promise
 };
 
 // Initialize the library..
