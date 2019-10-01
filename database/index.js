@@ -11,6 +11,6 @@ const initOptions = {
 const pgp = pgPromise(initOptions); 
 
 // Establish database connection..
-const database = pgp(process.env.DATABASE_URL);
+const database = pgp(process.env.DATABASE_URL || HEROKU_POSTGRESQL_BLUE_URL);
 
 module.exports = {database, pgp};
