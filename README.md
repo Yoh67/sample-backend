@@ -2,8 +2,7 @@
 
 <div align="center">
 
-  [![Status](https://img.shields.io/badge/Status-Deployed-brightgreen)]() 
-  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+  [![Status](https://img.shields.io/badge/Status-Failed-red)]() 
 
 </div>
 
@@ -59,7 +58,7 @@ There are a few endpoints that enable the use of Create, Read, Upload, and Delet
 As more functionality is included this will be updated to reflect additional usage!
 
 ## 🚀 Deployment <a name = "deployment"></a>
-This app is deployed on every successful commit via Heroku
+This app will be deployed on every successful commit via Heroku, deployment pipelines are the current focus of the project at this time.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [PostgreSQL](https://www.postgresql.org/) - Database
