@@ -2,10 +2,10 @@ const express = require('express'); // Initialize Express..
 const {database} = require('./database'); // Initialize database..
 
 const app = express();
-const port = 3000;
+//const port = 3000;
 
 // Startup port, log to console
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(process.env.port, () => console.log(`Example app listening on port ${process.env.port}!`));
 
 // Home/splash page will return Hello World!
 app.get('/', (request, response) => {
