@@ -1,5 +1,5 @@
 const express = require('express'); // Initialize Express..
-const {database} = require('./database'); // Initialize database..
+const {database} = require('./model'); // Initialize database..
 
 const app = express();
 const port = 3000;
