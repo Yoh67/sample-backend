@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 // Startup port, log to console
-app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${process.env.port}!`));
+app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${process.env.PORT}!`));
 
 // Home/splash page will return Hello World!
 app.get('/', (request, response) => {
