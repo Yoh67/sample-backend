@@ -1,17 +1,22 @@
 const express = require('express'); // Initialize Express..
-const {database} = require('./model'); // Initialize database..
+const {database} = require('./model/database_config.js'); // Initialize database..
+
+const testRouter = require('./routers/router.js');
 
 const app = express();
 const port = 3000;
 
+const router = express.Router();
+
+app.use('/api', router);
+router.get('/users', testRouter.test);
+
 // Startup port, log to console
-app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${process.env.PORT}!`));
+app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${process.env.PORT || port}!`));
 
 // Home/splash page will return Hello World!
 app.get('/', (request, response) => {
-    response.send('sample-backend Hello World!' + 
-    ' \nGET: ' +
-    request.originalUrl)
+    response.send('sample-backend Hello World!')
 });
 
 // GET @ custom endpoint, then we propagate the query results
