@@ -20,6 +20,8 @@ app.use('/api', router);
 router.get('/users', routerEndpoints.getAllUsers);
 router.get('/users/:id', routerEndpoints.getSingleUser);
 router.post('/users', routerEndpoints.createSingleUser);
+router.put('/users/:id', routerEndpoints.updateSingleUser);
+router.delete('/users/:id', routerEndpoints.deleteSingleUser);
 
 // Home/splash page will return Hello World!
 app.get('/', (request, response) => {
