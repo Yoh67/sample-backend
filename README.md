@@ -1,4 +1,4 @@
-<h3 align="center">sample-backend</h3>
+<h3 align="center">Sample-Backend</h3>
 
 <div align="center">
 
@@ -45,20 +45,24 @@ Then start the app
 npm start
 ```
 
-Once launched successfully, you'll be met with a Hello World splash screen.
+Once launched successfully, you'll be met with a Hello World message at http://localhost:3000/
 
 
 ## 🎈 Usage <a name="usage"></a>
-There is a RESTful API endpoint that can perform basic Create, Read, Update, and Delete (CRUD) operations against the database.
-```
-/api/users/
-/api/users/<user_id>
-```
+Using the RESTful API endpoints below, it is possible to execute basic Create, Read, Update, and Delete (CRUD) operations against the PostgreSQL database.
 
-As more functionality is included this will be updated to reflect additional usage!
+| REST Function | Endpoint       | Description             |
+| ------------- | -------------- | ----------------------- |
+| GET           | /api/users/    | Get All Users           |
+| GET           | /api/users/:id | Get a Single User       |
+| POST          | /api/users/    | Create a Single User    |
+| PUT           | /api/users/:id | Update an Existing User |
+| DELETE        | /api/users/:id | Delete an Existing User |
+
+Updated for v1.0 of Sample-Backend.
 
 ## 🚀 Deployment <a name = "deployment"></a>
-This app will be deployed on every successful commit via Heroku, deployment pipelines are the current focus of the project at this time.
+This app will be deployed on every successful commit via Heroku, this pipeline is not a "true" CICD workflow in the sense that there are not integration tests in the heroku branch environments to run against at this stage.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [PostgreSQL](https://www.postgresql.org/) - Database
