@@ -49,10 +49,10 @@ Once launched successfully, you'll be met with a Hello World splash screen.
 
 
 ## 🎈 Usage <a name="usage"></a>
-There are a few endpoints that enable the use of Create, Read, Upload, and Delete (CRUD) operations against the database that can be manipulated manually.
+There is a RESTful API endpoint that can perform basic Create, Read, Update, and Delete (CRUD) operations against the database.
 ```
-/read/<user_id>
-/insert/<user_id>
+/api/users/
+/api/users/<user_id>
 ```
 
 As more functionality is included this will be updated to reflect additional usage!
