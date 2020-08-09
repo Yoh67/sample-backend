@@ -24,12 +24,12 @@
 - [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
-Purpose of this project is to expand on my existing knowledge base by diving into more modern development practices which includes..
-- Developing a backend application (MVC)
-- Developing a live service (REST)
-- Deploying a live service (CICD)
-- Databases (Relational)
-- Languages and Frameworks (Node.js, Expressv4, ...)
+Wanted to learn more about microservices and modern tech stacks. Some topics include..
+- Developing a backend application using MVC
+- Developing a "REST"-ful live service
+- Deploying a live service using CICD dev processes
+- Some SQL and Database experience
+- Languages and Frameworks (Node.js, Expressv4, etc)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -62,7 +62,7 @@ Using the RESTful API endpoints below, it is possible to execute basic Create, R
 Updated for v1.0 of Sample-Backend.
 
 ## 🚀 Deployment <a name = "deployment"></a>
-This app will be deployed on every successful commit via Heroku, this pipeline is not a "true" CICD workflow in the sense that there are not integration tests in the heroku branch environments to run against at this stage.
+This app will be deployed on every successful commit via Heroku, this pipeline is not a "true" CICD workflow in the sense that there are not integration testing in the "develop" environment at this stage.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [PostgreSQL](https://www.postgresql.org/) - Database
@@ -71,7 +71,7 @@ This app will be deployed on every successful commit via Heroku, this pipeline i
 - [Heroku](https://heroku.com/) - Cloud Platform
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-"Tip of the hat" to all folks who's repositories are probably used on a consistent basis to create the foundation of most backend applications like this, these folks don't get enough thanks!
+"Tip of the hat" to all folks who's repositories are probably used on a consistent basis to create the foundation of most humble backend projects like this, these folks don't get enough thanks!
 - [@kylelobo](https://github.com/kylelobo) - Readme template source, highly encourage any who are looking to refer to his repo [here](https://github.com/kylelobo/The-Documentation-Compendium)
 - [@tj](https://github.com/tj) and [@dougwilson](https://github.com/dougwilson) - Original author and current maintainer of Express
 - [@petkaantonov](https://github.com/petkaantonov/bluebird) - Bluebird

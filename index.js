@@ -1,6 +1,6 @@
-const express = require('express'); // Initialize Express..
+// Initialize Express..
+const express = require('express');
 const routerEndpoints = require('./routers/router.js');
-//const {database} = require('./model/database_config.js'); // Initialize database..
 const bodyParser = require('body-parser');
 
 const app = express();
