@@ -1,6 +1,6 @@
 // Initialize Express..
 const express = require('express');
-const routerEndpoints = require('./routers/router.js');
+const routerEndpoints = require('./utils/router.js');
 const bodyParser = require('body-parser');
 
 const app = express();

@@ -1,4 +1,4 @@
-const {database} = require('../model/database_config.js'); // Initialize database..
+const {database} = require('../config/postgresql_config.js'); // Initialize database..
 
 // All User Read
 module.exports.getAllUsers = function (request, response) {
@@ -8,7 +8,7 @@ module.exports.getAllUsers = function (request, response) {
             response.send(JSON.stringify(data));
     })
     .catch(error => {
-        console.log("Error");
+        console.log("Generic Error");
     });
 }
 
