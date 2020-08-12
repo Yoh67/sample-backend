@@ -1,5 +1,4 @@
 const bluebird = require('bluebird'); // Best promise library to date..
-const monitor = require('pg-monitor');
 
 // Initialize pg-promsie with options..
 const initOptions = { 
@@ -7,11 +6,19 @@ const initOptions = {
     promiseLib: bluebird,
 };
 
-// Attach pgmonitor
-monitor.attach(initOptions);
-
 // Initialize the library..
 const pgp = require('pg-promise')(initOptions);
+
+const monitor = require('pg-monitor');
+
+// Attach pgmonitor
+monitor.attach(initOptions, [
+    'connect',
+    'disconnect',
+    'error'
+]);
+
+monitor.setTheme('matrix');
 
 // Establish database connection..
 const database = pgp(process.env.DATABASE_URL || process.env.HEROKU_POSTGRESQL_BLUE_URL);

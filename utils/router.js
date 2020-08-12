@@ -8,7 +8,8 @@ module.exports.getAllUsers = function (request, response) {
             response.send(JSON.stringify(data));
     })
     .catch(error => {
-        console.log("Generic Error");
+        console.log('Error:', error);
+        response.send(error);
     });
 }
 
@@ -21,6 +22,7 @@ module.exports.getSingleUser = function (request, response) {
     })
     .catch(error => {
         console.log('Error:', error);
+        response.send(error);
     });
 };
 
@@ -77,7 +79,8 @@ module.exports.createSingleUser = function (request, response) {
             ' is now cached.');
         })
     .catch(error => {
-        response.send(error);
+        console.error(error.stack);
+        response.status(500).send('Internal Server Error');
     });
 };
 
@@ -118,6 +121,7 @@ module.exports.updateSingleUser = function (request, response) {
         response.status(200);
     })
     .catch(error => {
+        console.log('Error:', error);
         response.send(error);
     });
 };
@@ -135,6 +139,7 @@ module.exports.deleteSingleUser = function (request, response) {
             ' successfully!');
     })
     .catch(error => {
+        console.log('Error:', error);
         response.send(error);
     });
 };
