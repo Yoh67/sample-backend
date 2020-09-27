@@ -1,7 +1,7 @@
 {
   "name": "sample-backend",
   "version": "1.1.0",
-  "description": "Sample-Backend project serves as a template for a database wrapper service.",
+  "description": "Sample-Backend project serves as a template for an enterprise-level database wrapper service.",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "test": "npm test"
   },
   "author": "Yoseph Solomon",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "blerg": "0.0.3",
     "bluebird": "^3.5.5",
