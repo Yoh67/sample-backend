@@ -24,7 +24,7 @@
     "nodemon": "^2.0.4",
     "pg-error": "^1.1.0",
     "pg-monitor": "^1.4.1",
-    "pg-promise": "^9.2.1"
+    "pg-promise": "^10.6.1"
   },
   "devDependencies": {}
 }
