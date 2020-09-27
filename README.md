@@ -14,10 +14,6 @@
 - [Acknowledgments](#acknowledgement)
 
 ## Getting Started <a name = "getting_started"></a>
-- Install PosgreSQL
-- Clone Repository
-- Create `.env` file and provide database connection string
-
 Run your PostgreSQL instance and create your own .env file with the connection string details. See the patern illustrated in [.env.example](https://github.com/ysolomon/sample-backend/blob/master/.env.example) for more information.
 
 Run the start script with nodemon 
@@ -25,11 +21,9 @@ Run the start script with nodemon
 npm start
 ```
 
-Some things to note if running into issues...
-- The start script does not need `nodemon`, it can be replaced it with `node`. While it's a dependency it doesn't seem to be installed via `npm i`, try this if you run into issues or install nodemon manuall via `npm i nodemon`.
-- Dotenv requires a path system variable to safely load the connection secrets in the `.env` file which is intentionally masked via [.gitignore](https://github.com/ysolomon/sample-backend/blob/master/.gitignore). If you ignore this step the app will deploy without database access.
-
 if launched successfully, open your browser to http://localhost:3000/ and you will be greeted with an example message.
+
+See the [Troubleshooting](https://github.com/ysolomon/sample-backend/wiki/Troubleshooting) section in the wiki for additional information.
 
 ## Usage <a name="usage"></a>
 Using the endpoints below, you can execute basic Create, Read, Update, and Delete (CRUD) operations against the PostgreSQL instance.

@@ -1,9 +1,9 @@
-const {database} = require('../config/postgresql_config.js');
+const Database = require('../config/postgresql_config.js');
 
 // All User Read
 module.exports.getAllUsers = function (request, response) {
     if (JSON.stringify(request.body) === '{}') {
-        database.any('SELECT * FROM users')
+        Database.any('SELECT * FROM users')
             .then(data => {
                 response.type('json');
                 response.status(200).send(JSON.stringify(data));
@@ -18,7 +18,7 @@ module.exports.getAllUsers = function (request, response) {
 
 // Single User Read
 module.exports.getSingleUser = function (request, response) {
-    database.any('SELECT * FROM users WHERE userid = $1', request.params.id)
+    Database.any('SELECT * FROM users WHERE userid = $1', request.params.id)
         .then(data => {
             response.type('json');
             response.status(200).send(JSON.stringify(data));
@@ -31,7 +31,7 @@ module.exports.getSingleUser = function (request, response) {
 
 // Single User Insert
 module.exports.createSingleUser = function (request, response) {
-    database.none('INSERT INTO users(\
+    Database.none('INSERT INTO users(\
             userid,\
             username,\
             password,\
@@ -85,7 +85,7 @@ module.exports.createSingleUser = function (request, response) {
 
 // Single User Update
 module.exports.updateSingleUser = function (request, response) {
-    database.none('UPDATE users SET \
+    Database.none('UPDATE users SET \
         username=$1,\
         password=$2,\
         email=$3,\
@@ -123,7 +123,7 @@ module.exports.updateSingleUser = function (request, response) {
 // Single User Delete
 module.exports.deleteSingleUser = function (request, response) {
     if (JSON.stringify(request.body) === '{}') {
-        database.result('DELETE FROM users WHERE userId=$1', request.params.id)
+        Database.result('DELETE FROM users WHERE userId=$1', request.params.id)
         .then(result => {
             response.status(200).send(JSON.stringify(data));
         })
