@@ -7,8 +7,14 @@ const initOptions = {
     promiseLib: bluebird,
 };
 
+
+
 // Attach pgmonitor
-monitor.attach(initOptions);
+monitor.attach(initOptions, [
+    'connect',
+    'disconnect',
+    'error'
+]);
 monitor.setTheme('matrix');
 
 // Initialize pg-promise
