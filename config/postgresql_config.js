@@ -7,8 +7,6 @@ const initOptions = {
     promiseLib: bluebird,
 };
 
-
-
 // Attach pgmonitor
 monitor.attach(initOptions, [
     'connect',

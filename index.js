@@ -2,16 +2,16 @@ const express = require('express');
 const routerEndpoints = require('./utils/router.js');
 const bodyParser = require('body-parser');
 
-const app = express();
-const port = 3000;
-const router = express.Router();
+var app = express();
+var port = 3000;
+var router = express.Router();
 
 // Startup port, log to console
 app.listen(process.env.PORT || port, () => console.log(`Sample-Backend listening on port ${process.env.PORT || port}!`));
 
-app.use(bodyParser.json());
 // Allows for parsing of nested JSON
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // BodyParser config needs to come before routers are exposed
 app.use('/api', router);
@@ -27,4 +27,4 @@ app.get('/', (request, response) => {
     response.send('Sample-Backend Hello World!')
 });
 
-module.exports = app;
+module.exports = {app};
