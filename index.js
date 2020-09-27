@@ -1,4 +1,3 @@
-// Initialize Express..
 const express = require('express');
 const routerEndpoints = require('./utils/router.js');
 const bodyParser = require('body-parser');
@@ -8,13 +7,13 @@ const port = 3000;
 const router = express.Router();
 
 // Startup port, log to console
-app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${process.env.PORT || port}!`));
+app.listen(process.env.PORT || port, () => console.log(`Sample-Backend listening on port ${process.env.PORT || port}!`));
 
 app.use(bodyParser.json());
 // Allows for parsing of nested JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// MUST BE AFTER BODY PARSER
+// BodyParser config needs to come before routers are exposed
 app.use('/api', router);
 
 router.get('/users', routerEndpoints.getAllUsers);
@@ -23,7 +22,7 @@ router.post('/users', routerEndpoints.createSingleUser);
 router.put('/users/:id', routerEndpoints.updateSingleUser);
 router.delete('/users/:id', routerEndpoints.deleteSingleUser);
 
-// Home/splash page will return Hello World!
+// GET request at app's home directory should return "Hello World!"
 app.get('/', (request, response) => {
     response.send('Sample-Backend Hello World!')
 });
