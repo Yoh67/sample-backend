@@ -1,4 +1,4 @@
-const {database} = require('../config/postgresql_config.js'); // Initialize database..
+const {database} = require('../config/postgresql_config.js');
 
 // All User Read
 module.exports.getAllUsers = function (request, response) {

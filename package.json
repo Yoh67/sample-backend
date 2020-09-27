@@ -1,14 +1,18 @@
 {
   "name": "sample-backend",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Sample-Backend project serves as a template for a database wrapper service.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
   "scripts": {
     "prestart": "npm i",
     "start": "nodemon -r dotenv/config index.js dotenv_config_path=./.env",
     "test": "npm test"
   },
-  "author": "",
+  "author": "Yoseph Solomon",
   "license": "ISC",
   "dependencies": {
     "blerg": "0.0.3",
@@ -17,9 +21,8 @@
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
-    "oauth2orize": "^1.11.0",
-    "passport": "^0.4.1",
-    "passport-http-bearer": "^1.0.1",
+    "nodemon": "^2.0.4",
+    "pg-error": "^1.1.0",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^9.2.1"
   },
