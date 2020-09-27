@@ -9,6 +9,7 @@ const initOptions = {
 
 // Attach pgmonitor
 monitor.attach(initOptions);
+monitor.setTheme('matrix');
 
 // Initialize the library..
 const pgp = require('pg-promise')(initOptions);
