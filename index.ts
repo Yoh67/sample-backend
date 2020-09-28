@@ -2,9 +2,9 @@ import express from "express";
 import bodyParser from "body-parser";
 import * as userRouter from './utils/userRouter';
 
-var app = express();
-var port = 3000;
-var router = express.Router();
+const app = express();
+const port = 3000;
+const router = express.Router();
 
 // Startup port, log to console
 app.listen(process.env.PORT || port, () => console.log(`Sample-Backend listening on port ${process.env.PORT || port}!`));

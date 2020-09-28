@@ -1,5 +1,4 @@
 import {Database} from '../config/postgresql_config';
-import {User} from '../models/users';
 
 // All User Read
 export function getAllUsers(request: any, response: any) {
@@ -61,7 +60,7 @@ export function createSingleUser(request: any, response: any) {
             $12,\
             CURRENT_TIMESTAMP,\
             NULL\
-        )', 
+        )',
     [
         request.body.userId,
         request.body.account.username,

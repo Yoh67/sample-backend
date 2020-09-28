@@ -16,9 +16,9 @@
 ## Getting Started <a name = "getting_started"></a>
 Run your PostgreSQL instance and create your own .env file with the connection string details. See the patern illustrated in [.env.example](https://github.com/ysolomon/sample-backend/blob/master/.env.example) for more information.
 
-Run the start script with nodemon 
+Run the start script 
 ```
-npm run dev
+npm start
 ```
 
 if launched successfully, open your browser to http://localhost:3000/ and you will be greeted with an example message.
