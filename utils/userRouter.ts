@@ -1,14 +1,15 @@
-const Database = require('../config/postgresql_config.js');
+import {Database} from '../config/postgresql_config';
+import {User} from '../models/users';
 
 // All User Read
-module.exports.getAllUsers = function (request, response) {
+export function getAllUsers(request: any, response: any) {
     if (JSON.stringify(request.body) === '{}') {
         Database.any('SELECT * FROM users')
-            .then(data => {
+            .then((data: any) => {
                 response.type('json');
                 response.status(200).send(JSON.stringify(data));
         })
-        .catch(error => {
+        .catch((error: any) => {
             response.status(500).send('Internal Server Error:', error);
         });
     } else {
@@ -17,20 +18,20 @@ module.exports.getAllUsers = function (request, response) {
 }
 
 // Single User Read
-module.exports.getSingleUser = function (request, response) {
+export function getSingleUser(request: any, response: any) {
     Database.any('SELECT * FROM users WHERE userid = $1', request.params.id)
-        .then(data => {
+        .then((data: any) => {
             response.type('json');
             response.status(200).send(JSON.stringify(data));
     })
-    .catch(error => {
+    .catch((error: any) => {
         console.log(error);
         response.status(400).send('Internal Server Error');
     });
 };
 
 // Single User Insert
-module.exports.createSingleUser = function (request, response) {
+export function createSingleUser(request: any, response: any) {
     Database.none('INSERT INTO users(\
             userid,\
             username,\
@@ -74,17 +75,17 @@ module.exports.createSingleUser = function (request, response) {
         request.body.address.city,
         request.body.address.state,
         request.body.address.zipCode
-    ]).then(function() {
+    ]).then(function(data: any) {
         response.status(200).send(JSON.stringify(data));
     })
-    .catch(error => {
+    .catch((error: any) => {
         console.log(error);
         response.status(400).send('Internal Server Error');
     });
 };
 
 // Single User Update
-module.exports.updateSingleUser = function (request, response) {
+export function updateSingleUser(request: any, response: any) {
     Database.none('UPDATE users SET \
         username=$1,\
         password=$2,\
@@ -111,27 +112,27 @@ module.exports.updateSingleUser = function (request, response) {
         request.body.address.state,
         request.body.address.zipCode,
         request.body.userId
-    ]).then(function() {
+    ]).then(function(data: any) {
         response.status(200).send(JSON.stringify(data));
     })
-    .catch(error => {
+    .catch((error: any) => {
         console.log(error);
         response.status(400).send('Internal Server Error');
     });
 };
 
 // Single User Delete
-module.exports.deleteSingleUser = function (request, response) {
+export function deleteSingleUser(request: any, response: any) {
     if (JSON.stringify(request.body) === '{}') {
         Database.result('DELETE FROM users WHERE userId=$1', request.params.id)
-        .then(result => {
+        .then((result: any, data: any) => {
             response.status(200).send(JSON.stringify(data));
         })
-        .catch(error => {
+        .catch((error: any) => {
             response.status(500).send('Internal Server Error');
         });
     } else {
-        console.log(error);
+        console.log(response.console.error());
         response.status(400).send('Internal Server Error');
     }
 };

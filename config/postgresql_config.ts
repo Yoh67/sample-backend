@@ -1,8 +1,8 @@
-const bluebird = require('bluebird'); 
-const monitor = require('pg-monitor');
+import bluebird from 'bluebird'; 
+import monitor from 'pg-monitor';
 
 const initOptions = { 
-    /// Designate bluebird as promise library
+    // Designate bluebird as promise library
     promiseLib: bluebird,
 };
 
@@ -18,6 +18,6 @@ monitor.attach(initOptions, [
 monitor.setTheme('matrix');
 
 // Establish database connection
-const database = pgp(process.env.DATABASE_URL || process.env.HEROKU_POSTGRESQL_BLUE_URL);
+const Database = pgp(process.env.DATABASE_URL || process.env.HEROKU_POSTGRESQL_BLUE_URL);
 
-module.exports = {database, pgp};
+export {Database, pgp};

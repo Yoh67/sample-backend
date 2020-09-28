@@ -18,7 +18,7 @@ Run your PostgreSQL instance and create your own .env file with the connection s
 
 Run the start script with nodemon 
 ```
-npm start
+npm run dev
 ```
 
 if launched successfully, open your browser to http://localhost:3000/ and you will be greeted with an example message.
@@ -42,7 +42,7 @@ Updated for v1.1 of Sample-Backend.
 - [PostgreSQL](https://www.postgresql.org/) - Database
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
-- [Heroku](https://heroku.com/) - Cloud Platform
+- [Heroku](https://heroku.com/) - Live Cloud Platform
 
 ## Acknowledgements <a name = "acknowledgement"></a>
 Special Thanks

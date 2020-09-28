@@ -1,8 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-
-
-const RouterEndpoints = require('./utils/router.js');
+import * as userRouter from './utils/userRouter';
 
 var app = express();
 var port = 3000;
@@ -18,11 +16,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // BodyParser config needs to come before routers are exposed
 app.use('/api', router);
 
-router.get('/users', RouterEndpoints.getAllUsers);
-router.get('/users/:id', RouterEndpoints.getSingleUser);
-router.post('/users', RouterEndpoints.createSingleUser);
-router.put('/users/:id', RouterEndpoints.updateSingleUser);
-router.delete('/users/:id', RouterEndpoints.deleteSingleUser);
+router.get('/users', userRouter.getAllUsers);
+router.get('/users/:id', userRouter.getSingleUser);
+router.post('/users', userRouter.createSingleUser);
+router.put('/users/:id', userRouter.updateSingleUser);
+router.delete('/users/:id', userRouter.deleteSingleUser);
 
 // GET request at app's home directory should return "Hello World!"
 app.get('/', (request, response) => {
