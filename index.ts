@@ -1,5 +1,5 @@
-import express from "express";
-import bodyParser from "body-parser";
+import express from 'express';
+import bodyParser from 'body-parser';
 import * as userRouter from './utils/userRouter';
 
 const app = express();
@@ -7,7 +7,8 @@ const port = 3000;
 const router = express.Router();
 
 // Startup port, log to console
-app.listen(process.env.PORT || port, () => console.log(`Sample-Backend listening on port ${process.env.PORT || port}!`));
+app.listen(process.env.PORT || port,
+    () => console.info(`Sample-Backend listening on port ${process.env.PORT || port}!`));
 
 // Allows for parsing of nested JSON
 app.use(bodyParser.json());

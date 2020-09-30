@@ -12,7 +12,7 @@ const initOptions = {
 const pgp: IMain = pgPromise(initOptions);
 
 // Establish database connection
-const Database = pgp(process.env.DATABASE_URL || process.env.HEROKU_POSTGRESQL_BLUE_URL);
+const Database = pgp(String(process.env.DATABASE_URL));
 
 // Attach pgmonitor
 monitor.attach(initOptions, [

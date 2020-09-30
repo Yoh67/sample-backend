@@ -74,7 +74,7 @@ export function createSingleUser(request: any, response: any) {
         request.body.address.city,
         request.body.address.state,
         request.body.address.zipCode
-    ]).then(function(data: any) {
+    ]).then((data: any) => {
         response.status(200).send(JSON.stringify(data));
     })
     .catch((error: any) => {
@@ -111,7 +111,7 @@ export function updateSingleUser(request: any, response: any) {
         request.body.address.state,
         request.body.address.zipCode,
         request.body.userId
-    ]).then(function(data: any) {
+    ]).then((data: any) => {
         response.status(200).send(JSON.stringify(data));
     })
     .catch((error: any) => {
@@ -124,8 +124,8 @@ export function updateSingleUser(request: any, response: any) {
 export function deleteSingleUser(request: any, response: any) {
     if (JSON.stringify(request.body) === '{}') {
         Database.result('DELETE FROM users WHERE userId=$1', request.params.id)
-        .then((result: any, data: any) => {
-            response.status(200).send(JSON.stringify(data));
+        .then((result: any) => {
+            response.status(200).send('User deleted');
         })
         .catch((error: any) => {
             response.status(500).send('Internal Server Error');

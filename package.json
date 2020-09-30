@@ -27,6 +27,7 @@
     "pg-error": "^1.1.0",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^9.2.1",
+    "ts-dotenv": "^0.8.1",
     "ts-node": "^9.0.0"
   },
   "devDependencies": {
