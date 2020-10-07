@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Startup port, log to console
 app.listen(process.env.PORT || port,
-    () => console.info(`Sample-Backend listening on port ${process.env.PORT || port}!`));
+    () => console.info(`Sample-Backend listening on port ${process.env.PORT || port}! \n${process.env.NODE_ENV}`));
 
 // Allows for parsing of nested JSON
 app.use(bodyParser.json());
