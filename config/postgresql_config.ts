@@ -11,25 +11,23 @@ const initOptions = {
 // Initialize pg-promise
 const pgp: IMain = pgPromise(initOptions);
 
-const cn = process.env.NODE_ENV === 'production' ? {
-    host: (String(process.env.HEROKU_DATABASE_HOST)),
-    port: (Number(process.env.HEROKU_DATABASE_PORT)),
-    database: (String(process.env.HEROKU_DATABASE_NAME)),
-    user: (String(process.env.HEROKU_DATABASE_USER)),
-    password: (String(process.env.HEROKU_DATABASE_PASS))
+// Can be extrapolated into a separate config/ file for multiple connections
+const connection = process.env.NODE_ENV === 'production' ? {
+    host: (String(process.env.HEROKU_DB_HOST)),
+    port: (Number(process.env.HEROKU_DB_PORT)),
+    database: (String(process.env.HEROKU_DB_NAME)),
+    user: (String(process.env.HEROKU_DB_USER)),
+    password: (String(process.env.HEROKU_DB_PASS))
 } : {
-    host: 'localhost',
-    port: 5432,
-    database: 'myDatabase',
-    user: 'myUser',
-    password: 'myPassword'
+    host: (String(process.env.LOCAL_DB_HOST)),
+    port: (Number(process.env.LOCAL_DB_PORT)),
+    database: (String(process.env.LOCAL_DB_NAME)),
+    user: (String(process.env.LOCAL_DB_USER)),
+    password: (String(process.env.LOCAL_DB_PASS))
 };
 
 // Establish database connection
-const Database = pgp(cn);
-// const Database = pgp(String(process.env.NODE_ENV === 'production' ? process.env.HEROKU_DATABASE_URL : process.env.LOCAL_DATABASE_URL));
-
-
+const Database = pgp(connection);
 
 // Attach pgmonitor
 monitor.attach(initOptions, [
