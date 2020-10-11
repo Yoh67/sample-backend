@@ -1,4 +1,4 @@
-import {Database} from '../config/postgresql_config';
+import {Database} from '../database/config';
 
 // All User Read
 export function getAllUsers(request: any, response: any) {

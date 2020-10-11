@@ -1,3 +1,8 @@
+# Dependencies
 node_modules/
-.env
+
+# Typescript
 dist/
+
+# Misc
+.env
