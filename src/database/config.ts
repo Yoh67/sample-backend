@@ -1,11 +1,22 @@
 import bluebird from 'bluebird';
 import monitor from 'pg-monitor';
 import pgPromise from 'pg-promise';
-import {IMain} from 'pg-promise';
+import {IInitOptions, IDatabase, IMain} from 'pg-promise';
+import {IExtensions, Users} from '../users/users';
 
-const initOptions = {
+type ExtendedProtocol = IDatabase<IExtensions> & IExtensions;
+
+const initOptions: IInitOptions<IExtensions> = {
     // Designate bluebird as promise library
     promiseLib: bluebird,
+
+    extend(obj: ExtendedProtocol, dc: any) {
+        // Database Context (dc) is mainly needed for extending multiple databases with different access API.
+
+        // Do not use 'require()' here, because this event occurs for every task and transaction being executed,
+        // which should be as fast as possible.
+        obj.users = new Users(obj, pgp);
+    }
 };
 
 // Initialize pg-promise
