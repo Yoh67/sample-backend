@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // BodyParser config needs to come before routers are exposed
 app.use('/api', router);
 
-router.get('/users', userRouter.getAllUsers);
+// router.get('/users', userRouter.getAllUsers);
 // router.get('/users/:id', userRouter.getSingleUser);
 router.post('/users', userRouter.createSingleUser);
 router.put('/users', userRouter.updateSingleUser);
@@ -29,14 +29,37 @@ router.delete('/users/:id', userRouter.deleteSingleUser);
 //////////////////////////////////////////////
 
 // Find all users
-GET('/users', () => Database.task('get-all-users', async (t: any) => {
-    return t.user || await t.users.findAllUsers()
-}));
+GET('/users', () =>  {
+    return Database.task('get-all-users', async (t: any) => {
+        return t.user || await t.users.findAllUsers();
+    });
+});
 
 // Find a single user
-GET('/users/:id', req => {
+GET('/users/:userid', (req: any) => {
     return Database.task('get-user', async (t: any) => {
-        return t.user || await t.users.findUser(req.params);
+        return t.user || await t.users.findUser(req.params.userid);
+    });
+});
+//// =============================================================
+// add a new user, if it doesn't exist yet, and return the object:
+// GET('/users/add/:name', req => {
+//     return db.task('add-user', async t => {
+//         const user = await t.users.findByName(req.params.name);
+//         return user || await t.users.add(req.params.name);
+//     });
+// });
+
+// // find a user by id:
+// GET('/users/find/:id', (req: any) => db.users.findById(req.params.id));
+
+// // remove a user by id:
+// GET('/users/remove/:id', (req: any) => db.users.remove(req.params.id));
+
+// Add a user
+POST('/users', req => {
+    return Database.task('add-user', async (t: any) => {
+        return t.user || await t.users.add(req.body);
     });
 });
 
@@ -57,6 +80,25 @@ function GET(url: string, handler: (req: any) => any) {
         }
     });
 }
+
+// Generic POST handler;
+function POST(url: string, handler: (req: any) => any) {
+    app.post(url, async (req, res) => {
+        try {
+            const data = await handler(req);
+            res.json({
+                success: true,
+                data
+            });
+        } catch (error) {
+            res.json({
+                success: false,
+                error: error.message || error
+            });
+        }
+    });
+}
+
 
 // GET request at app's home directory should return "Hello World!"
 app.get('/', (request, response) => {

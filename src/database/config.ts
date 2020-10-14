@@ -2,7 +2,7 @@ import bluebird from 'bluebird';
 import monitor from 'pg-monitor';
 import pgPromise from 'pg-promise';
 import {IInitOptions, IDatabase, IMain} from 'pg-promise';
-import {IExtensions, Users} from '../users/users.router.new';
+import {IExtensions, Users} from '../index';
 
 type ExtendedProtocol = IDatabase<IExtensions> & IExtensions;
 

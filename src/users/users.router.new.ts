@@ -3,13 +3,6 @@ import {IResult} from 'pg-promise/typescript/pg-subset';
 import {User} from '../database/models';
 import {users as sql} from './index';
 
-// Database Interface Extensions:
-interface IExtensions {
-    users: Users
-}
-
-export {IExtensions};
-
 export class Users {
 
     /**
@@ -52,8 +45,34 @@ export class Users {
     }
 
     // Adds a new user, and returns the new object
-    async add(name: string): Promise<User> {
-        return this.db.one(sql.add, name);
+    async add(values: {
+        userid: number,
+        username: string,
+        password: string,
+        email: string,
+        first_name: string,
+        last_name: string,
+        language: string,
+        country: string,
+        street: string,
+        city: string,
+        state: string,
+        zip_code: number
+    }): Promise<User> {
+        return this.db.one(sql.add, {
+            userid: values.userid,
+            username: values.username,
+            password: values.password,
+            email: values.email,
+            first_name: values.first_name,
+            last_name: values.last_name,
+            language: values.language,
+            country: values.country,
+            street: values.street,
+            city: values.city,
+            state: values.state,
+            zip_code: values.zip_code
+        });
     }
 
     // Returns a single user

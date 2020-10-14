@@ -3,4 +3,4 @@
  */
 SELECT *
 FROM users
-WHERE userid = ${id}
+WHERE userid = $1
