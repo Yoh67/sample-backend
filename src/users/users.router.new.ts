@@ -8,9 +8,7 @@ interface IExtensions {
     users: Users
 }
 
-export {
-    IExtensions
-};
+export {IExtensions};
 
 export class Users {
 
@@ -33,14 +31,14 @@ export class Users {
         */
     }
 
-    // Creates the table;
+    // Creates the table
     async create(): Promise<null> {
         return this.db.none(sql.create);
     }
 
-    // Initializes the table with some user records, and return their id-s;
+    // Initializes the table with a user records, and return its id
     async init(): Promise<number[]> {
-        return this.db.map(sql.init, [], (row: { id: number }) => row.id);
+        return this.db.map(sql.init, [], (row: { userid: number }) => row.userid);
     }
 
     // Drops the table;
@@ -48,16 +46,26 @@ export class Users {
         return this.db.none(sql.drop);
     }
 
-    // Removes all records from the table;
+    // Removes all records from the table
     async empty(): Promise<null> {
         return this.db.none(sql.empty);
     }
 
-    // Adds a new user, and returns the new object;
+    // Adds a new user, and returns the new object
     async add(name: string): Promise<User> {
         return this.db.one(sql.add, name);
     }
 
+    // Returns a single user
+    async findUser(userid: string): Promise<User> {
+        return this.db.one(sql.findUser, userid);
+    }
+
+    // Returns all users
+    async findAllUsers(): Promise<Users[]> {
+        return this.db.any(sql.findAllUsers);
+    }
+/*
     // Tries to delete a user by id, and returns the number of records deleted;
     async remove(id: number): Promise<number> {
         return this.db.result('DELETE FROM users WHERE id = $1', +id, (r: IResult) => r.rowCount);
@@ -81,5 +89,5 @@ export class Users {
     // Returns the total number of users;
     async total(): Promise<number> {
         return this.db.one('SELECT count(*) FROM users', [], (a: { count: string }) => +a.count);
-    }
+    }*/
 }

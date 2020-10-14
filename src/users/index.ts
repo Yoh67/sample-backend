@@ -6,7 +6,9 @@ export const users = {
     empty: sql('sql/empty.sql'),
     init: sql('sql/init.sql'),
     drop: sql('sql/drop.sql'),
-    add: sql('sql/add.sql')
+    add: sql('sql/add.sql'),
+    findUser: sql('sql/findUser.sql'),
+    findAllUsers: sql('sql/findAllUsers.sql')
 };
 
 function sql(file: string): QueryFile {
