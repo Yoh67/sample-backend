@@ -1,5 +1,6 @@
 /*
- * Inserts a new User record.
+ * Inserts a new User record using Named Formatting.
+ * See https://github.com/vitaly-t/pg-promise#named-parameters
  */
 INSERT INTO users(
     userid,

@@ -1,5 +1,5 @@
 /*
- * Creates table Users.
+ * Creates the Users table.
  */
 CREATE TABLE public.users
 (
@@ -21,4 +21,3 @@ CREATE TABLE public.users
     CONSTRAINT users_email_key UNIQUE (email),
     CONSTRAINT users_username_key UNIQUE (username)
 )
-

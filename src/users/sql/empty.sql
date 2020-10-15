@@ -1,5 +1,5 @@
 /*
- * Quickly deletes all records from table Users
- * and all dependent records from table Products.
+ * Quickly deletes all records from the Users table
+ * and all dependent records from the Users table.
  */
 TRUNCATE TABLE users CASCADE

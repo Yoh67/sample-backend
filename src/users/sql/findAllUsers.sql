@@ -1,5 +1,5 @@
 /*
- * Finds all users
+ * Finds all users in the Users table.
  */
 SELECT * 
 FROM users
