@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import {Database} from './database/config';
-import {GET, POST, PUT, DELETE} from './utils/handler_util';
+import {InitializeUserRouters} from './users/router';
+import {InitializeDatabaseRouters} from './database/router';
 
 const app = express();
 
@@ -13,47 +13,9 @@ app.listen(process.env.APP_PORT,
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Define if POST is best for this
-POST('/init', req => {
-    return Database.task('init', async (t: any) => {
-        return t.user || await t.users.init(req.body);
-    });
-});
-
-// Find all users
-GET('/users', () =>  {
-    return Database.task('get-all-users', async (t: any) => {
-        return t.user || await t.users.findAllUsers();
-    });
-});
-
-// Find a single user
-GET('/users/:userid', (req: any) => {
-    return Database.task('get-user', async (t: any) => {
-        return t.user || await t.users.findUser(req.params.userid);
-    });
-});
-
-// Add a user
-POST('/users', req => {
-    return Database.task('add-user', async (t: any) => {
-        return t.user || await t.users.add(req.body);
-    });
-});
-
-// Add a user
-PUT('/users', req => {
-    return Database.task('update-user', async (t: any) => {
-        return t.user || await t.users.update(req.body);
-    });
-});
-
-// Find a single user
-DELETE('/users/:userid', (req: any) => {
-    return Database.task('delete-user', async (t: any) => {
-        return t.user || await t.users.delete(req.params.userid);
-    });
-});
+// Initialize Routers
+InitializeDatabaseRouters();
+InitializeUserRouters();
 
 // "Hello World" uptime health check
 app.get('/', (request, response) => {

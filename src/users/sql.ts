@@ -1,6 +1,8 @@
 import {QueryFile, IQueryFileOptions} from 'pg-promise';
 import path from 'path';
 
+// SQL folder can be .gitignore'd for a production ready application,
+// obfuscating all SQL-related code
 export const userQueryFiles = {
     create: sql('sql/create.sql'),
     empty: sql('sql/empty.sql'),
@@ -18,12 +20,8 @@ function sql(file: string): QueryFile {
     const fullPath: string = path.join(__dirname, file);
 
     const options: IQueryFileOptions = {
-        // TODO
-        // minifying the SQL is always advised;
-        // see also option 'compress' in the API;
-        minify: true
-
-        // See also property 'params' for two-step template formatting
+        minify: true,
+        compress: true
     };
 
     const queryFile: QueryFile = new QueryFile(fullPath, options);

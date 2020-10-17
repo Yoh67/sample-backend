@@ -51,8 +51,7 @@ export class Users {
     }
 
     // Adds a new user, and returns the new object
-    async add(values: {
-        userId: number,
+    async add(userId: number, values: {
         firstName: string,
         lastName: string,
         email: string,
@@ -70,7 +69,7 @@ export class Users {
         }
     }): Promise<null> {
         return this.Database.none(sql.add, {
-            userid: values.userId,
+            userid: userId,
             first_name: values.firstName,
             last_name: values.lastName,
             email: values.email,
@@ -96,8 +95,7 @@ export class Users {
     }
 
     // Updates a users data
-    async update(values: {
-        userId: number,
+    async update(userId: number, values: {
         first_name: string,
         last_name: string,
         email: string,
@@ -115,7 +113,7 @@ export class Users {
         }
     }): Promise<null> {
         return this.Database.none(sql.update, {
-            userid: values.userId,
+            userid: userId,
             first_name: values.first_name,
             last_name: values.last_name,
             email: values.email,
