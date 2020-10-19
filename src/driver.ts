@@ -1,9 +1,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import passport from 'passport';
+import {InitializeAuthorization} from './utils/authorization_util';
 import {InitializeUserRouters} from './users/router';
 import {InitializeDatabaseRouters} from './database/router';
 
 const app = express();
+
+// Initialize Passport with the Basic Auth strategy
+InitializeAuthorization();
 
 // Startup port
 app.listen(process.env.APP_PORT,
@@ -18,7 +23,9 @@ InitializeDatabaseRouters();
 InitializeUserRouters();
 
 // "Hello World" uptime health check
-app.get('/', (request, response) => {
+app.get('/',
+  passport.authenticate('basic', { session: false }),
+  (request, response) => {
     response.send('Sample-Backend Hello World!');
 });
 

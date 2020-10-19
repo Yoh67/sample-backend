@@ -1,9 +1,7 @@
 <h3 align="center">Sample-Backend</h3>
 
 <div align="center">
-
-  [![Version](https://img.shields.io/badge/Version-v1.1-green)]() 
-
+[![Version](https://img.shields.io/badge/Version-v1.2-green)]() 
 </div>
 
 ---
@@ -28,15 +26,15 @@ See the [Troubleshooting](https://github.com/ysolomon/sample-backend/wiki/Troubl
 ## Usage <a name="usage"></a>
 Using the endpoints below, you can execute basic Create, Read, Update, and Delete (CRUD) operations against the PostgreSQL instance.
 
-| REST Function | Endpoint       | Description             |
-| ------------- | -------------- | ----------------------- |
-| GET           | /api/users/    | Get All Users           |
-| GET           | /api/users/:id | Get a Single User       |
-| POST          | /api/users/    | Create a Single User    |
-| PUT           | /api/users/:id | Update an Existing User |
-| DELETE        | /api/users/:id | Delete an Existing User |
+| REST Function | Endpoint   | Description             |
+| ------------- | ---------- | ----------------------- |
+| GET           | /users/    | Get All Users           |
+| GET           | /users/:id | Get a Single User       |
+| POST          | /users/:id | Create a Single User    |
+| PUT           | /users/:id | Update an Existing User |
+| DELETE        | /users/:id | Delete an Existing User |
 
-Updated for v1.1 of Sample-Backend.
+Updated for v1.2 of Sample-Backend.
 
 ## Resources <a name = "resources"></a>
 - [PostgreSQL](https://www.postgresql.org/) - Database

@@ -27,9 +27,6 @@ function sql(file: string): QueryFile {
     const queryFile: QueryFile = new QueryFile(fullPath, options);
 
     if (queryFile.error) {
-        // Something is wrong with our query file :(
-        // Testing all files through queries can be cumbersome,
-        // so we also report it here, while loading the module:
         console.error(queryFile.error);
     }
 

@@ -2,7 +2,7 @@ import {IDatabase, IMain} from 'pg-promise';
 import {User} from '../database/models';
 import {userQueryFiles as sql} from './sql';
 
-// Database Interface Extensions:
+// Database Interface Extensionsss
 interface IExtensions {
     users: Users
 }
@@ -22,13 +22,7 @@ export class Users {
      * Library's root, if ever needed, like to access 'helpers'
      * or other namespaces available from the root.
      */
-    constructor(private Database: IDatabase<any>, private pgp: IMain) {
-        /*
-          If your repository needs to use helpers like ColumnSet,
-          you should create it conditionally, inside the constructor,
-          i.e. only once, as a singleton.
-        */
-    }
+    constructor(private Database: IDatabase<any>, private pgp: IMain) {}
 
     // Creates the table
     async create(): Promise<null> {
