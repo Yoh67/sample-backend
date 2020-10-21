@@ -15,6 +15,7 @@ export const userQueryFiles = {
     delete: sql('sql/delete.sql')
 };
 
+// Function to parse pg-promise queryfiles
 function sql(file: string): QueryFile {
 
     const fullPath: string = path.join(__dirname, file);

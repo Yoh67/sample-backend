@@ -10,10 +10,6 @@ const app = express();
 // Initialize Passport with the Basic Auth strategy
 InitializeAuthorization();
 
-// Startup port
-app.listen(process.env.APP_PORT,
-    () => console.info(`Sample-Backend listening on port ${process.env.APP_PORT}!`));
-
 // Allows for parsing of nested JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,6 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Initialize Routers
 InitializeDatabaseRouters();
 InitializeUserRouters();
+
+// Startup port
+app.listen(process.env.APP_PORT,
+  () => console.info(`Sample-Backend listening on port ${process.env.APP_PORT}!`));
 
 // "Hello World" uptime health check
 app.get('/',

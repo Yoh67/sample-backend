@@ -1,13 +1,15 @@
-import passport, { Strategy } from 'passport';
+import passport from 'passport';
 import {BasicStrategy} from 'passport-http';
 
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
-
+// Credential mapping
 const users = [
-    { username: clientId, password: clientSecret }
+    {
+        username: process.env.CLIENT_ID,
+        password: process.env.CLIENT_SECRET
+    }
 ];
 
+// BasicVerifyFunction Override
 function VerifyUser(username: any, callback: any) {
     process.nextTick(() => {
         for (let i = 0, length = users.length; i < length; i++) {
@@ -20,16 +22,12 @@ function VerifyUser(username: any, callback: any) {
     });
 };
 
+// BasicAuth Strategy
 export function InitializeAuthorization() {
     passport.use(new BasicStrategy(
         {},
         (username, password, done) => {
             VerifyUser(username, (error: any, user: any) => {
-                console.log(
-                    username + '\n'+
-                    user + '\n' +
-                    user.password + '\n' +
-                    password);
                 if (error) { return done(error); }
                 if (!user) { return done(null, false); }
                 if (user.password !== password) { return done(null, false); }

@@ -1,8 +1,12 @@
+import passport from 'passport';
 import {app} from '../driver';
 
-// Generic GET handler
+// GET handler
 export function GET(url: string, handler: (request: any) => any) {
-    app.get(url, async (request, response) => {
+    app.get(
+        url,
+        passport.authenticate('basic', {session: false}),
+        async (request, response) => {
         try {
             const data = await handler(request);
             response.json({
@@ -18,9 +22,12 @@ export function GET(url: string, handler: (request: any) => any) {
     });
 }
 
-// Generic POST handler
+// POST handler
 export function POST(url: string, handler: (request: any) => any) {
-    app.post(url, async (request, response) => {
+    app.post(
+        url,
+        passport.authenticate('basic', {session: false}),
+        async (request, response) => {
         try {
             const data = await handler(request);
             response.json({
@@ -36,9 +43,12 @@ export function POST(url: string, handler: (request: any) => any) {
     });
 }
 
-// Generic PUT handler
+// PUT handler
 export function PUT(url: string, handler: (request: any) => any) {
-    app.put(url, async (request, response) => {
+    app.put(
+        url,
+        passport.authenticate('basic', {session: false}),
+        async (request, response) => {
         try {
             const data = await handler(request);
             response.json({
@@ -54,9 +64,12 @@ export function PUT(url: string, handler: (request: any) => any) {
     });
 }
 
-// Generic DELTE handler
+// DELTE handler
 export function DELETE(url: string, handler: (request: any) => any) {
-    app.delete(url, async (request, response) => {
+    app.delete(
+        url,
+        passport.authenticate('basic', {session: false}),
+        async (request, response) => {
         try {
             const data = await handler(request);
             response.json({

@@ -24,15 +24,25 @@ if launched successfully, open your browser to http://localhost:3000/ and you wi
 See the [Troubleshooting](https://github.com/ysolomon/sample-backend/wiki/Troubleshooting) section in the wiki for additional information.
 
 ## Usage <a name="usage"></a>
-Using the endpoints below, you can execute basic Create, Read, Update, and Delete (CRUD) operations against the PostgreSQL instance.
+Using the endpoints below, you can execute basic Create, Read, Update, and Delete (CRUD) operations against the PostgreSQL instance using model data.
 
 | REST Function | Endpoint   | Description             |
 | ------------- | ---------- | ----------------------- |
+| GET           | /          | Health Check            |
 | GET           | /users/    | Get All Users           |
 | GET           | /users/:id | Get a Single User       |
 | POST          | /users/:id | Create a Single User    |
 | PUT           | /users/:id | Update an Existing User |
 | DELETE        | /users/:id | Delete an Existing User |
+
+There are additional Database scripts exposed via API, these can be masked and ran via npm scripts for production level code however provide an additional way to interact with the server without the need to redeploy.
+
+| REST Function | Endpoint   | Description             |
+| ------------- | ---------- | ----------------------- |
+| POST          | /create    | Create Table            |
+| POST          | /init      | Initialize Model Data   |
+| DELETE        | /drop      | Drop Table              |
+| DELETE        | /empty     | Deletes all users       |
 
 Updated for v1.2 of Sample-Backend.
 
