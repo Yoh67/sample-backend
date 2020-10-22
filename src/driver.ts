@@ -1,18 +1,17 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import passport from 'passport';
+import {InitializeSession} from './utils/session_util';
 import {InitializeAuthorization} from './utils/authorization_util';
 import {InitializeUserRouters} from './users/router';
 import {InitializeDatabaseRouters} from './database/router';
 
 const app = express();
 
+// Initialize Session settings
+InitializeSession();
+
 // Initialize Passport with the Basic Auth strategy
 InitializeAuthorization();
-
-// Allows for parsing of nested JSON
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 // Initialize Routers
 InitializeDatabaseRouters();
