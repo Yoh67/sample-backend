@@ -6,3 +6,6 @@ dist/
 
 # Misc
 .env
+
+# Testing Secrets
+src/tests/*.json
