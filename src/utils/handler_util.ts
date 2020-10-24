@@ -1,5 +1,5 @@
 import passport from 'passport';
-import {app} from '../driver';
+import {app} from '../app';
 
 // GET handler
 export function GET(url: string, handler: (request: any) => any) {

@@ -1,9 +1,19 @@
+import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
+import passport from 'passport';
 import {v4 as uuidv4} from 'uuid';
-import {app} from '../app';
 
 type SessionOptions = session.SessionOptions;
+
+const app = express();
+
+// "Hello World" uptime health check
+app.get('/',
+  passport.authenticate('basic', { session: false }),
+  (request, response) => {
+    response.send('Sample-Backend Hello World!');
+});
 
 const sess: SessionOptions = {
     genid: (request: any) => {
@@ -15,7 +25,7 @@ const sess: SessionOptions = {
     cookie: { secure: true }
 };
 
-export function InitializeSession() {
+export function InitializeApp() {
     if (app.get('env') === 'production') {
         app.set('trust proxy', 1); // trust first proxy
     }
@@ -26,3 +36,5 @@ export function InitializeSession() {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
 }
+
+export {app};
