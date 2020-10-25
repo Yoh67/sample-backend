@@ -6,6 +6,7 @@ import {v4 as uuidv4} from 'uuid';
 
 type SessionOptions = session.SessionOptions;
 
+// Initialize App
 const app = express();
 
 // "Hello World" uptime health check
@@ -15,6 +16,7 @@ app.get('/',
     response.send('Sample-Backend Hello World!');
 });
 
+// Configure Sessions
 const sess: SessionOptions = {
     genid: (request: any) => {
         return uuidv4(); // use UUIDs for session IDs
@@ -25,6 +27,7 @@ const sess: SessionOptions = {
     cookie: { secure: true }
 };
 
+// Export App
 export function InitializeApp() {
     if (app.get('env') === 'production') {
         app.set('trust proxy', 1); // trust first proxy

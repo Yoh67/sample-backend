@@ -15,7 +15,7 @@
     "start": "set NODE_ENV=local&& ts-node -r dotenv/config src/server.ts dotenv_config_path=./.env",
     "production": "set NODE_ENV=production&& ts-node -r dotenv/config src/server.ts dotenv_config_path=./.env",
     "local": "set NODE_ENV=local&& ts-node -r dotenv/config src/server.ts dotenv_config_path=./.env",
-    "test": "newman run src/tests/sample-backend-tests.postman_collection.json -e src/tests/local.postman_environment.json"
+    "test": "npm start&& newman run src/tests/sample-backend-tests.postman_collection.json -e src/tests/local.postman_environment.json"
   },
   "author": "Yoseph Solomon",
   "license": "MIT",

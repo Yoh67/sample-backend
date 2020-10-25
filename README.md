@@ -50,11 +50,18 @@ Updated for v1.2 of Sample-Backend.
 - [PostgreSQL](https://www.postgresql.org/) - Database
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
+- [Pg-Promise](https://github.com/vitaly-t/pg-promise) - Database Middleware
 - [Heroku](https://heroku.com/) - Live Cloud Platform
+- [Newman](https://github.com/postmanlabs/newman) - CLI for Postman Test Coverage
+- [Typescript](https://www.typescriptlang.org/) - Static Type Definitions
+- [DotEnv](https://github.com/motdotla/dotenv) - Environment Variables
+- [Passport](http://www.passportjs.org/) - Authentication Strategy
 
 ## Acknowledgements <a name = "acknowledgement"></a>
 Special Thanks
 - [@tj](https://github.com/tj) and [@dougwilson](https://github.com/dougwilson) - Original author and current maintainer of Express
-- [@petkaantonov](https://github.com/petkaantonov/bluebird) - Bluebird
-- [@motdotla](https://github.com/motdotla/dotenv) - Dotenv
-- [@vitaly-t](https://github.com/vitaly-t/pg-promise) - Pg-Promise
+- [@petkaantonov](https://github.com/petkaantonov) - Bluebird
+- [@motdotla](https://github.com/motdotla) - DotEnv
+- [@vitaly-t](https://github.com/vitaly-t) - Pg-Promise and Pg-Monitor
+- [@jaredhanson](https://github.com/jaredhanson) - Passport
+- [@postmanlabs](https://github.com/postmanlabs) - Newman
