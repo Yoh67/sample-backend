@@ -44,6 +44,8 @@ There are additional Database scripts exposed via API, these can be masked and r
 | DELETE        | /drop      | Drop Table              |
 | DELETE        | /empty     | Deletes all users       |
 
+See the readme in the tests/ folder for more on Testing.
+
 Updated for v1.2 of Sample-Backend.
 
 ## Resources <a name = "resources"></a>
