@@ -1,7 +1,7 @@
 <h3 align="center">Sample-Backend</h3>
 
 <div align="center">
-[![Version](https://img.shields.io/badge/Version-v1.2-green)]() 
+v1.2
 </div>
 
 ---
