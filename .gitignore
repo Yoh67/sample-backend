@@ -1,2 +1,12 @@
+# Dependencies
 node_modules/
+
+# Typescript
+dist/
+
+# Misc
 .env
+
+# Testing Secrets
+src/tests/local.postman_environment.json
+src/tests/sample-backend-tests.postman_collection.json
