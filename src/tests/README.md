@@ -1,7 +1,7 @@
 <h3 align="center">Testing</h3>
 
 ## Getting Started <a name = "getting_started"></a>
-The curernt implementation of tests is very basic and not as robust as would be expected, this is due to time constraints however it is possible to test the application. 
+The curernt implementation of tests is very basic and not as robust as would be expected, however it is very flexible and capable of being ran in a headless environment which I saw as an acceptable trade-off. 
 
 You will need to first launch the app using..
 ```
