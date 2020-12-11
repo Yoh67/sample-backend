@@ -50,14 +50,14 @@ Updated for v1.2 of Sample-Backend.
 
 ## Resources <a name = "resources"></a>
 - [PostgreSQL](https://www.postgresql.org/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [Express](https://expressjs.com/) - Node Backend Framework
+- [NodeJs](https://nodejs.org/en/) - Server Framework
 - [Pg-Promise](https://github.com/vitaly-t/pg-promise) - Database Middleware
-- [Heroku](https://heroku.com/) - Live Cloud Platform
+- [Heroku](https://heroku.com/) - Live Cloud Platform (Optional)
 - [Newman](https://github.com/postmanlabs/newman) - CLI for Postman Test Coverage
 - [Typescript](https://www.typescriptlang.org/) - Static Type Definitions
-- [DotEnv](https://github.com/motdotla/dotenv) - Environment Variables
-- [Passport](http://www.passportjs.org/) - Authentication Strategy
+- [DotEnv](https://github.com/motdotla/dotenv) - Secrets/Env. Variable Solution
+- [Passport](http://www.passportjs.org/) - Authentication Strategy and Solution
 
 ## Acknowledgements <a name = "acknowledgement"></a>
 Special Thanks
