@@ -1,13 +1,9 @@
 import {QueryFile, IQueryFileOptions} from 'pg-promise';
 import path from 'path';
 
-// SQL folder can be .gitignore'd for a production ready application,
-// obfuscating all SQL-related code
+// SQL folder can be added to .gitignore for a production ready application,
+// obfuscating all SQL-related files
 export const userQueryFiles = {
-    create: sql('sql/create.sql'),
-    empty: sql('sql/empty.sql'),
-    init: sql('sql/init.sql'),
-    drop: sql('sql/drop.sql'),
     add: sql('sql/add.sql'),
     findUser: sql('sql/findUser.sql'),
     findAllUsers: sql('sql/findAllUsers.sql'),

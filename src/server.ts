@@ -1,7 +1,7 @@
 import {InitializeApp, app} from './app';
 import {InitializeAuthorization} from './utils/authorization_util';
 import {InitializeUserRouters} from './users/router';
-import {InitializeDatabaseRouters} from './database/router';
+
 
 // Initialize Session settings
 InitializeApp();
@@ -10,7 +10,6 @@ InitializeApp();
 InitializeAuthorization();
 
 // Initialize Routers
-InitializeDatabaseRouters();
 InitializeUserRouters();
 
 // Startup port

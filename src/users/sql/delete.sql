@@ -3,4 +3,5 @@
  * See https://github.com/vitaly-t/pg-promise#query-formatting
  */
 DELETE FROM users 
-WHERE userId=$1
+WHERE username=$1
+

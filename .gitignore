@@ -8,5 +8,5 @@ dist/
 .env
 
 # Testing Secrets
-src/tests/local.postman_environment.json
-src/tests/sample-backend-tests.postman_collection.json
+src/tests/postman_environments.json
+src/tests/postman_collection.json

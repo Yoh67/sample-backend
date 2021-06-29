@@ -11,30 +11,30 @@ export function InitializeUserRouters() {
     });
 
     // Find a single user
-    GET('/users/:userid', (req: any) => {
+    GET('/user', (req: any) => {
         return Database.task('get-user', async (task: any) => {
-            return task.user || await task.users.findUser(req.params.userid);
+            return task.user || await task.users.findUser(req.body.username);
         });
     });
 
     // Add a user
-    POST('/users/:userid', (req: any) => {
+    POST('/users', (req: any) => {
         return Database.task('add-user', async (task: any) => {
-            return task.user || await task.users.add(req.params.userid, req.body);
+            return task.user || await task.users.add(req.body);
         });
     });
 
-    // Add a user
-    PUT('/users/:userid', (req: any) => {
+    // Update a user
+    PUT('/users', (req: any) => {
         return Database.task('update-user', async (task: any) => {
-            return task.user || await task.users.update(req.params.userid, req.body);
+            return task.user || await task.users.update(req.body);
         });
     });
 
-    // Find a single user
-    DELETE('/users/:userid', (req: any) => {
+    // Remove a single user
+    DELETE('/users', (req: any) => {
         return Database.task('delete-user', async (task: any) => {
-            return task.user || await task.users.delete(req.params.userid);
+            return task.user || await task.users.delete(req.body.username);
         });
     });
 }
