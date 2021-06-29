@@ -25,11 +25,15 @@ Run the start script
 npm start
 ```
 
+
 If all goes well, open your browser to http://localhost:3000/ and you will be greeted with an example message.
 
 See the [Troubleshooting](https://github.com/ysolomon/sample-backend/wiki/Troubleshooting) section in the wiki for additional information.
 
+See the [Troubleshooting](https://github.com/ysolomon/sample-backend/wiki/Troubleshooting) section in the wiki for additional information.
+
 ## Usage <a name="usage"></a>
+
 Using the endpoints below, you can execute basic Create, Read, Update, and Delete (CRUD) operations against the PostgreSQL instance using model data (src/database/model.ts).
 
 | REST Function | Endpoint   | Description             |

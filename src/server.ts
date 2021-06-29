@@ -2,6 +2,7 @@ import {InitializeApp, app} from './app';
 import {InitializeAuthorization} from './utils/authorization_util';
 import {InitializeUserRouters} from './users/router';
 
+
 // Initialize Session settings
 InitializeApp();
 
