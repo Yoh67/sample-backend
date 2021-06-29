@@ -14,4 +14,4 @@ UPDATE users SET
     state=${state},
     zip_code=${zip_code},
     updated_date=CURRENT_TIMESTAMP 
-WHERE userId=${userid}
+WHERE username=${username}

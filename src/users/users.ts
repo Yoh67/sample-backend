@@ -1,6 +1,7 @@
 import {IDatabase, IMain} from 'pg-promise';
-import {User} from '../database/models';
+import {User} from '../database/model';
 import {userQueryFiles as sql} from './sql';
+import {v4 as uuidv4} from 'uuid';
 
 // Database Interface Extensionsss
 interface IExtensions {
@@ -24,28 +25,8 @@ export class Users {
      */
     constructor(private Database: IDatabase<any>, private pgp: IMain) {}
 
-    // Creates the table
-    async create(): Promise<null> {
-        return this.Database.none(sql.create);
-    }
-
-    // Initializes the table with a user records, and return its id
-    async init(): Promise<number[]> {
-        return this.Database.map(sql.init, [], (row: { userId: number }) => row.userId);
-    }
-
-    // Drops the table;
-    async drop(): Promise<null> {
-        return this.Database.none(sql.drop);
-    }
-
-    // Removes all records from the table
-    async empty(): Promise<null> {
-        return this.Database.none(sql.empty);
-    }
-
     // Adds a new user, and returns the new object
-    async add(userId: number, values: {
+    async add(values: {
         firstName: string,
         lastName: string,
         email: string,
@@ -63,7 +44,7 @@ export class Users {
         }
     }): Promise<null> {
         return this.Database.none(sql.add, {
-            userid: userId,
+            userid: uuidv4(),
             first_name: values.firstName,
             last_name: values.lastName,
             email: values.email,
@@ -78,9 +59,9 @@ export class Users {
         });
     }
 
-    // Returns a single user
-    async findUser(userId: string): Promise<User> {
-        return this.Database.one(sql.findUser, userId);
+    // Adds a new user, and returns the new object
+    async findUser(username: string): Promise<User> {
+        return this.Database.one(sql.findUser, username);
     }
 
     // Returns all users
@@ -89,9 +70,9 @@ export class Users {
     }
 
     // Updates a users data
-    async update(userId: number, values: {
-        first_name: string,
-        last_name: string,
+    async update(values: {
+        firstName: string,
+        lastName: string,
         email: string,
         language: string,
         account: {
@@ -103,13 +84,13 @@ export class Users {
             city: string,
             state: string,
             country: string,
-            zip_code: number
+            zipCode: number
         }
     }): Promise<null> {
         return this.Database.none(sql.update, {
-            userid: userId,
-            first_name: values.first_name,
-            last_name: values.last_name,
+            userId: null,
+            first_name: values.firstName,
+            last_name: values.lastName,
             email: values.email,
             language: values.language,
             username: values.account.username,
@@ -118,12 +99,12 @@ export class Users {
             city: values.address.city,
             state: values.address.state,
             country: values.address.country,
-            zip_code: values.address.zip_code
+            zip_code: values.address.zipCode
         });
     }
 
     // Deletes a single user
-    async delete(userId: string): Promise<User> {
-        return this.Database.result(sql.delete, userId);
+    async delete(username: string): Promise<User> {
+        return this.Database.result(sql.delete, username);
     }
 }
